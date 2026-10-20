@@ -1,5 +1,5 @@
 :root{
-  --hero-image: url("A.png");
+  --hero-image: url("images/A.png");
   --overlay: rgba(14, 28, 66, 0.82);
   --accent: #e8452c;
 }
