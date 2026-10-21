@@ -1,0 +1,55 @@
+.teachers-page{background:#f4f6f9;color:#142747}
+.teachers-main{max-width:1120px;margin:auto;padding:48px 5% 24px}
+.teachers-heading{text-align:center;margin-bottom:40px}.teachers-heading .eyebrow{color:var(--accent)}
+.teachers-heading h1{font-size:clamp(2.2rem,4.5vw,3.5rem);letter-spacing:-1px;line-height:1.2;margin:14px 0}
+.teachers-heading p{color:#627187;line-height:1.8}
+.head-teacher{display:flex;align-items:center;gap:36px;padding:32px;border-radius:16px;background:#122943;color:#fff;position:relative;overflow:hidden}
+.teacher-portrait{background:#e7edf4;position:relative;overflow:hidden;aspect-ratio:4/5}
+.teacher-portrait svg{width:55%;height:85%;fill:#b5c3d3}
+.head-teacher .teacher-portrait{width:180px;aspect-ratio:4/5;flex-shrink:0;border-radius:10px;background:#213d5c}.head-teacher .teacher-portrait svg{fill:#69819c;width:80%}
+.profile-role{font-size:.72rem;font-weight:700;letter-spacing:1.3px;text-transform:uppercase;color:var(--accent)}.head-teacher .profile-role{color:#f8c985}
+.head-copy{position:relative;z-index:1}.head-copy h2{font-size:clamp(1.7rem,3vw,2.3rem);margin:12px 0}.head-name{font-size:1.15rem;color:#d7e1f1;margin-bottom:22px}
+.head-copy dl div{display:flex;gap:20px;line-height:1.8;font-size:.9rem}.head-copy dt{color:#aebed5}.head-copy dd{color:#fff}
+.office-link{display:inline-flex;gap:24px;color:#f8c985;text-decoration:none;font-size:.85rem;font-weight:700;margin-top:26px;border-bottom:1px solid #f8c98550;padding-bottom:8px}
+.leadership-mark{margin-left:auto;font-size:4rem;line-height:1;font-weight:700;color:#ffffff14;align-self:end}.leadership-mark small{display:block;font-size:.65rem;letter-spacing:3px;text-align:center;margin-top:12px;color:#aebed5;text-transform:uppercase}
+.faculty-section{padding-top:40px}.faculty-heading{margin-bottom:22px}.faculty-heading .eyebrow{color:var(--accent)}.faculty-heading h2{font-size:1.7rem;margin-top:10px}
+.faculty-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
+.teacher-card{display:flex;flex-direction:column;min-width:0;height:100%;background:#fff;border:1px solid #dce3eb;border-radius:12px;overflow:hidden}.profile-copy{padding:22px;display:flex;flex-direction:column;flex:1;min-width:0}.profile-copy h3{font-size:1.2rem;margin:9px 0 20px}
+.profile-copy dl{border-top:1px solid #e7edf4;padding-top:14px;display:grid;grid-template-rows:minmax(48px,auto) minmax(48px,auto) minmax(78px,auto);gap:12px;margin-top:auto}.profile-copy dl div{display:flex;flex-direction:column;align-items:flex-start;gap:3px;font-size:.85rem;line-height:1.7}.profile-copy dt{color:#627187}.profile-copy dd{color:#142747}
+.teacher-contact{display:flex;align-items:center;justify-content:space-between;gap:20px;padding:26px 0;margin-top:30px;border-top:1px solid #dce3eb;font-size:.9rem;line-height:1.8}.teacher-contact p{color:#627187}.teacher-contact a{color:var(--accent);font-weight:700;text-decoration:none;white-space:nowrap}
+.teachers-footer{text-align:center;background:#0c1930;color:#aebed5;padding:24px;font-size:.8rem;line-height:1.7}.teachers-page :focus-visible{outline:3px solid #e8452c;outline-offset:5px}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){.teacher-card{transition:transform .2s,box-shadow .2s}.teacher-card:hover{transform:translateY(-4px);box-shadow:0 12px 26px #14274712}}
+@media(max-width:850px){.faculty-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.leadership-mark{display:none}}
+@media(max-width:540px){.teachers-main{padding-top:32px}.head-teacher{flex-direction:column;align-items:start;padding:24px;gap:24px}.head-teacher .teacher-portrait{width:140px}.faculty-grid{grid-template-columns:1fr}.teacher-contact{align-items:start;flex-direction:column}.teachers-heading{text-align:left}.teachers-heading h1{letter-spacing:-.5px}}
+
+.teacher-portrait img{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;object-position:center 30%}.teacher-card .teacher-portrait{aspect-ratio:4/5;width:100%;flex-shrink:0}.profile-copy dd{text-align:left;overflow-wrap:normal}.profile-copy dt{flex-shrink:0}
+
+.profile-copy dd{min-width:0}.profile-copy dd a{color:var(--accent);overflow-wrap:anywhere;text-underline-offset:3px}.head-copy{min-width:0}.head-copy dd a{color:#f8c985;overflow-wrap:anywhere;text-underline-offset:3px}.head-copy dl div{flex-wrap:wrap}
+
+
+
+.profile-email a{font-size:.78rem;line-height:1.7}.profile-email a span{display:inline-block;white-space:nowrap}.profile-copy .profile-email a,.head-copy .profile-email a{overflow-wrap:normal;word-break:normal}.faculty-grid{align-items:stretch;grid-auto-rows:1fr}
+
+/* Shared school palette and directory layout. */
+.teachers-main{max-width:none;padding:40px 7% 32px}
+.teachers-banner{padding:42px 7%;text-align:center;color:#fff;background:#0c1930}
+.teachers-banner h1{font-size:clamp(2rem,4vw,3.2rem);line-height:1.2;margin:12px 0}.teachers-banner p{color:#e0e7f3;line-height:1.8}
+
+.teacher-search{display:grid;gap:8px;max-width:480px;font-size:.85rem;font-weight:700}.teacher-search input{font:inherit;padding:13px 16px;border:1px solid #b7c5d6;border-radius:7px;background:#fff;color:#142747;width:100%}.directory-count{color:#627187;font-size:.85rem;line-height:1.7;margin:16px 0 24px}
+.profile-copy .profile-email a,.head-copy .profile-email a{color:#142747;white-space:nowrap;font-size:.75rem}.head-copy .profile-email a{display:inline-block;background:#f4f6f9;padding:4px 9px;border-radius:4px}
+.faculty-grid{grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
+.teacher-contact a{background:var(--accent);color:#fff;padding:13px 20px;border-radius:6px;text-align:center}.teacher-contact a:hover{background:#bd321d}
+[hidden]{display:none!important}
+@media(max-width:700px){.faculty-grid{grid-template-columns:1fr}.teachers-main{padding:28px 5%}.teachers-banner{padding:32px 5%}.teacher-contact a{white-space:normal}.profile-copy{padding:18px}}
+
+.teachers-banner{min-height:clamp(320px,38vw,480px);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:48px 7%;background:#0c1930}
+.teachers-banner h1{margin:0 0 18px;color:#fff}.teachers-banner p{color:#e0e7f3;max-width:680px}
+@media(max-width:540px){.teachers-banner{min-height:300px;padding:40px 5%}}
+
+/* Shared navy background for navigation and welcome banner. */
+.teachers-top{background:#0c1930}
+.teachers-top .shared-page-header,.teachers-top .teachers-banner{background:transparent}
+
+.teachers-top .teachers-banner{min-height:0;padding:24px 7% 32px}.teachers-banner h1{margin:0;font-size:clamp(1.8rem,3vw,2.5rem)}.teachers-main{padding-top:28px}
+
+.teachers-title{margin:4px 0 28px;text-align:left}.teachers-title h1{color:#142747;font-size:clamp(1.8rem,3vw,2.5rem);line-height:1.25;letter-spacing:-.5px;margin:0}
