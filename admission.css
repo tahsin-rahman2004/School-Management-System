@@ -112,7 +112,7 @@ body{background:#0c1930;color:#e0e7f3}.admission-main{max-width:1180px;margin:au
   .admission-main>*:not(#apply),.shared-page-header,.admission-footer,#applicationMessage{display:none!important}
   .admission-main{display:block;max-width:none;padding:0}
   #apply{margin:0;padding:0;border:0;box-shadow:none;background:#fff;color:#111}
-  #apply>h2:before{content:'S. M. Pilot Model High School — ';}
+  #apply>h2:before{content:'S. M. Pilot Model School — ';}
   .policy-form fieldset{background:#fff!important;border:1px solid #777;box-shadow:none;break-inside:avoid}
   .policy-form legend,.policy-form label,.policy-form p,.policy-form .class-requirements{color:#111!important;background:#fff!important}
   .policy-form input,.policy-form select,.policy-form textarea{color:#111;background:#fff;border-color:#777;color-scheme:light}
@@ -186,3 +186,5 @@ body{background:#0c1930;color:#e0e7f3}.admission-main{max-width:1180px;margin:au
 @media(hover:hover) and (prefers-reduced-motion:no-preference){.admission-gateway .admission-choice{transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}.admission-gateway .admission-choice:hover{transform:translateY(-4px);border-color:#f8c985;box-shadow:0 14px 30px #14274712}.admission-gateway .form-choice:hover{border-color:var(--accent)}}
 @media(max-width:900px){.admission-gateway .admission-page-heading{padding:32px 26px}.admission-gateway .admission-choice{padding:24px;column-gap:14px}}
 @media(max-width:700px){.admission-welcome{grid-template-columns:1fr}.admission-gateway .admission-choices{grid-template-columns:1fr}.admission-gateway .admission-landing{padding-top:20px;gap:20px}.admission-gateway .admission-page-heading{padding:32px 26px}.admission-gateway .admission-choice{padding:24px 20px}.admission-gateway .admission-page-heading h1{letter-spacing:-1px}}
+
+#class9GroupField{display:flex;flex-direction:column;gap:8px;margin-top:20px;color:#fff;line-height:1.6}

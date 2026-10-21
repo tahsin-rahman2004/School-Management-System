@@ -1,12 +1,14 @@
 // Sample seat counts. Replace these with school-confirmed totals before opening admissions.
 // 0 = no seats; null = not confirmed.
+const CLASS_9_GROUP_SEATS = { science: 5, humanities: 3, business: 0 };
 const CLASS_SEAT_AVAILABILITY = {
   2: 18, 3: 12, 4: 0, 5: 9, 6: 40,
-  7: 15, 8: 0, 9: 8, 10: 5
+  7: 15, 8: 0, 9: Object.values(CLASS_9_GROUP_SEATS).reduce((sum, seats) => sum + seats, 0), 10: 5
 };
 
-function canStartApplication(value) {
+function canStartApplication(value, group = "") {
   const rules = getAdmissionRequirements(value);
+  if (Number(value) === 9) return Object.hasOwn(CLASS_9_GROUP_SEATS, group) && CLASS_9_GROUP_SEATS[group] > 0;
   return rules.valid && Number(value) !== 10 && (Number(value) === 1 || Number.isInteger(CLASS_SEAT_AVAILABILITY[Number(value)]) && CLASS_SEAT_AVAILABILITY[Number(value)] > 0);
 }
 
@@ -17,15 +19,10 @@ function getAdmissionRequirements(value) {
 }
 
 (() => {
-  let language = 'en';
+  let language = document.documentElement.lang === 'bn' ? 'bn' : 'en';
   const translate = (en, bn) => language === 'bn' ? bn : en;
-  const nodes = [...document.querySelectorAll('[data-bn]')];
-  nodes.forEach(node => { node.dataset.en = node.textContent; });
-  document.getElementById('languageToggle').addEventListener('click', event => {
-    language = language === 'en' ? 'bn' : 'en';
-    document.documentElement.lang = language;
-    nodes.forEach(node => { node.textContent = node.dataset[language]; });
-    event.currentTarget.textContent = language === 'en' ? 'বাংলা' : 'English';
+  document.addEventListener('schoollanguagechange', event => {
+    language = event.detail;
     renderSeatInformation();
     if (document.getElementById('applicationForm')) updateClassRequirements();
   });
@@ -105,19 +102,31 @@ function getAdmissionRequirements(value) {
 
 
   document.getElementById('printApplication').addEventListener('click', () => {
-    if (canStartApplication(application.elements.class.value)) window.print();
+    if (canStartApplication(application.elements.class.value, application.elements.group.value)) window.print();
   });
   const message = document.getElementById('applicationMessage');
   const classSelect = application.elements.class;
+  const groupSelect = application.elements.group;
+  const groupField = document.getElementById('class9GroupField');
   const academicFields = document.getElementById('academicFields');
   function updateClassRequirements() {
     const rules = getAdmissionRequirements(classSelect.value);
-    const allowed = canStartApplication(classSelect.value);
+    const isClass9 = Number(classSelect.value) === 9;
+    groupField.hidden = !isClass9;
+    groupSelect.disabled = !isClass9;
+    groupSelect.required = isClass9;
+    if (!isClass9) groupSelect.value = '';
+    const groupNames = {science: ['Science', 'বিজ্ঞান'], humanities: ['Humanities', 'মানবিক'], business: ['Business Studies', 'ব্যবসায় শিক্ষা']};
+    Object.entries(CLASS_9_GROUP_SEATS).forEach(([key, seats]) => {
+      const option = groupSelect.querySelector(`option[value="${key}"]`);
+      option.textContent = translate(`${groupNames[key][0]} — ${seats} seats`, `${groupNames[key][1]} — ${seats.toLocaleString('bn-BD')}টি আসন`);
+    });
+    const allowed = canStartApplication(classSelect.value, groupSelect.value);
     const details = document.getElementById('applicationDetails');
     details.hidden = !allowed;
     details.disabled = !allowed;
-    if (document.activeElement === classSelect) message.hidden = true;
-    const availability = CLASS_SEAT_AVAILABILITY[Number(classSelect.value)];
+    if (document.activeElement === classSelect || document.activeElement === groupSelect) message.hidden = true;
+    const availability = isClass9 ? CLASS_9_GROUP_SEATS[groupSelect.value] : CLASS_SEAT_AVAILABILITY[Number(classSelect.value)];
     const status = document.getElementById('seatAvailability');
     status.textContent = !rules.valid
       ? translate('Choose a class to continue.', 'এগিয়ে যেতে শ্রেণি নির্বাচন করুন।')
@@ -130,6 +139,14 @@ function getAdmissionRequirements(value) {
           : availability === 0
             ? translate('No seats available in this class. Applications cannot proceed.', 'এই শ্রেণিতে খালি আসন নেই। আবেদন করা যাবে না।')
             : translate('Seat availability is not confirmed. Contact the school office before applying.', 'খালি আসন নিশ্চিত করা হয়নি। আবেদনের আগে স্কুল অফিসে যোগাযোগ করুন।');
+    if (isClass9) {
+      const names = groupNames[groupSelect.value];
+      status.textContent = !names
+        ? translate('Choose a Class 9 group to check seats and continue.', 'আসন যাচাই ও আবেদন করতে নবম শ্রেণির বিভাগ নির্বাচন করুন।')
+        : availability > 0
+          ? translate(`${names[0]}: ${availability} seats available — you may continue.`, `${names[1]}: ${availability.toLocaleString('bn-BD')}টি আসন খালি আছে — আবেদন করতে পারেন।`)
+          : translate(`No seats available in ${names[0]}. Applications cannot proceed for this group.`, `${names[1]} বিভাগে খালি আসন নেই। এই বিভাগে আবেদন করা যাবে না।`);
+    }
     status.dataset.available = String(allowed);
     academicFields.hidden = !rules.needsAcademicCertificate;
     academicFields.disabled = !rules.needsAcademicCertificate;
@@ -150,6 +167,7 @@ function getAdmissionRequirements(value) {
             : translate('Class 10: TC/e-TC transfer route, subject to a vacant seat, both schools’ approval and board permission.', '১০ম শ্রেণি: টিসি/ই-টিসির মাধ্যমে বদলি; খালি আসন, উভয় স্কুলের অনুমোদন ও বোর্ডের অনুমতি সাপেক্ষে।'));
   }
   classSelect.addEventListener('change', updateClassRequirements);
+  groupSelect.addEventListener('change', updateClassRequirements);
   updateClassRequirements();
 
   const today = new Date();
@@ -157,7 +175,7 @@ function getAdmissionRequirements(value) {
   application.elements.dob.max = dateString;
   application.addEventListener('submit', event => {
     event.preventDefault();
-    if (!canStartApplication(classSelect.value)) {
+    if (!canStartApplication(classSelect.value, groupSelect.value)) {
       updateClassRequirements();
       document.getElementById('seatAvailability').scrollIntoView({block:'center'});
       return;
