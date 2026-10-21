@@ -19,10 +19,11 @@ if (menuBtn && menuClose && menu) {
     links.forEach(link => {
       const target = new URL(link.href);
       const targetPage = target.pathname.split("/").pop();
-      const active = targetPage === currentPage &&
-        (currentPage === "gallery.html" || target.hash === (location.hash || "#home"));
+      const matchingPage = targetPage === currentPage || (targetPage === "admission.html" && ["admission-process.html", "admission-form.html"].includes(currentPage));
+      const active = matchingPage &&
+        (currentPage !== "t.html" || target.hash === (location.hash || "#home"));
       link.classList.toggle("active", active);
-      if (active) link.setAttribute("aria-current", currentPage === "gallery.html" ? "page" : "location");
+      if (active) link.setAttribute("aria-current", currentPage !== "t.html" ? "page" : "location");
       else link.removeAttribute("aria-current");
     });
   }
