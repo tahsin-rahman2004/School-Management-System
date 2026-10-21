@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head><script src="language.js" defer></script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Application Form | S. M. Pilot Model School</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="admission.css">
+<script src="script.js" defer>
+</script>
+<script src="admission.js" defer>
+</script>
+<link rel="stylesheet" href="language.css"></head>
+<body>
+<header class="shared-page-header">  <nav class="navbar">
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" data-label="Menu" aria-controls="menu" aria-expanded="false">
+      <span>
+</span>
+<span>
+</span>
+<span>
+</span>
+    </button>
+
+   <a class="logo" href="t.html#home" aria-label="S. M. Pilot Model School home">
+     <img src="images/logo.png" alt="S. M. Pilot Model School crest" width="64" height="64">
+     <span class="brand-text">S. M. Pilot<span class="brand-subtitle">Model School</span>
+</span>
+   </a>
+
+    <ul class="menu" id="menu">
+     <li class="menu-head">
+        <button class="menu-close" id="menuClose" aria-label="Close menu" data-label="Cross">&times;</button>
+      </li>
+      <li>
+<a href="t.html#home">Home</a>
+</li>
+      <li>
+<a href="t.html#about">About</a>
+</li>
+      <li>
+<a href="teachers.html">Teachers’ Information</a>
+</li>
+      <li>
+<a href="t.html#academics">Academics</a>
+</li>
+      <li>
+<a href="t.html#notice">Notice</a>
+</li>
+      <li>
+<a href="admission.html">Admission</a>
+</li>
+      <li>
+<a href="t.html#results">Results</a>
+</li>
+      <li>
+<a href="t.html#academic-calendar">Academic Calendar</a>
+</li>
+      <li>
+<a href="t.html#events">Events &amp; Activities</a>
+</li>
+      <li>
+<a href="gallery.html">Gallery</a>
+</li>
+      <li>
+<a href="t.html#Alumni">Alumni</a>
+</li>
+      <li>
+<a href="t.html#contact">Contact</a>
+</li>
+    </ul>
+    <button class="language-toggle" id="languageToggle" type="button" lang="bn" aria-label="বাংলায় দেখুন">বাংলা</button><a class="student-login" href="t.html#login">Student Login</a>
+  </nav>
+</header>
+<main class="admission-main"><div class="admission-page-heading"><a class="back-admission" href="admission.html">← <span data-bn="ভর্তির মূল পৃষ্ঠা">Admission</span></a><h1 data-bn="আবেদন ফর্ম">Application form</h1></div><a class="secondary-action" href="admission-process.html"><span data-bn="ভর্তি প্রক্রিয়া দেখুন">Read admission process</span></a><section class="panel" id="apply">
+<h2 data-bn="ভর্তির আবেদন ফর্ম">Admission application form</h2>
+<p data-bn="আবেদন যাচাইয়ের পর আপনি ভর্তির জন্য অথবা ভর্তি পরীক্ষায় অংশ নেওয়ার যোগ্য হলে স্কুল অফিস থেকে ইমেইল পাবেন। আবেদন ও প্রয়োজনীয় কাগজপত্র সরাসরি স্কুল অফিসেও জমা দিতে পারেন।">After the school reviews your application, the school office will email you if you are eligible for admission or to sit the admission test. You may also submit your application and required documents directly at the school office.</p>
+<noscript><p>Enable JavaScript to check seats and open the application form. You can still download the blank form above.</p></noscript>
+<form id="applicationForm" class="form-grid policy-form"><p class="required-key"><span data-bn="ঐচ্ছিক বা “প্রযোজ্য হলে” লেখা না থাকলে ঘর পূরণ করা আবশ্যক।">Fields are required unless marked optional or “where applicable”.</span></p><fieldset class="application-group"><legend><span data-bn="প্রথমে শ্রেণি ও আসন যাচাই করুন">Check class & seat availability first</span></legend><label><span data-bn="যে শ্রেণিতে ভর্তি হতে ইচ্ছুক">Class applying for</span><select name="class" required aria-describedby="classRequirements"><option value="" data-bn="শ্রেণি নির্বাচন করুন">Choose a class</option><option value="1" data-bn="শ্রেণি 1">Class 1</option><option value="2" data-bn="শ্রেণি 2">Class 2</option><option value="3" data-bn="শ্রেণি 3">Class 3</option><option value="4" data-bn="শ্রেণি 4">Class 4</option><option value="5" data-bn="শ্রেণি 5">Class 5</option><option value="6" data-bn="শ্রেণি 6">Class 6</option><option value="7" data-bn="শ্রেণি 7">Class 7</option><option value="8" data-bn="শ্রেণি 8">Class 8</option><option value="9" data-bn="শ্রেণি 9">Class 9</option><option value="10" data-bn="শ্রেণি 10">Class 10</option></select></label><label id="class9GroupField" hidden><span data-bn="নবম শ্রেণির বিভাগ">Class 9 group</span><select name="group" disabled aria-describedby="seatAvailability"><option value="" data-bn="বিভাগ নির্বাচন করুন">Choose a group</option><option value="science">Science</option><option value="humanities">Humanities</option><option value="business">Business Studies</option></select></label><div id="seatAvailability" class="class-requirements" role="status" aria-live="polite"></div></fieldset><fieldset id="applicationDetails" class="application-details" hidden disabled><legend class="visually-hidden">Application details</legend><div id="classRequirements" class="class-requirements" role="status"></div><fieldset class="application-group "><legend><span data-bn="১. শিক্ষার্থীর তথ্য">1. Student information</span></legend><div class="application-fields"><div class="full student-photo-upload"><label for="studentPhoto"><span data-bn="শিক্ষার্থীর সাম্প্রতিক পাসপোর্ট সাইজ ছবি">Recent passport-size student photograph</span></label><input id="studentPhoto" name="studentPhoto" type="file" accept="image/jpeg,image/png,image/webp" required aria-describedby="photoHelp"><p id="photoHelp" data-bn="JPG, PNG বা WebP; সর্বোচ্চ ৫ মেগাবাইট। ছবি প্রিভিউ ও প্রিন্টে থাকবে; খসড়ায় শুধু ফাইলের নাম রাখা হবে।">JPG, PNG or WebP; maximum 5 MB. The photo appears in the preview and printout; only its filename is saved in the draft.</p><img id="studentPhotoPreview" alt="Student photograph preview" hidden><p id="photoError" class="upload-error" role="alert"></p></div><label><span data-bn="শিক্ষার্থীর নাম (ইংরেজি)">Student name (English)</span><input name="student" type="text" required maxlength="120" autocomplete="name"></label><label><span data-bn="শিক্ষার্থীর নাম (বাংলা)">Student name (Bangla)</span><input name="studentBangla" type="text" required maxlength="120" lang="bn"></label><label><span data-bn="জন্মতারিখ">Date of birth</span><input name="dob" type="date" required ></label><label><span data-bn="অনলাইন জন্ম নিবন্ধন নম্বর">Online birth registration number</span><input name="birthRegistration" type="text" required inputmode="numeric" pattern="[0-9]{17}" minlength="17" maxlength="17"></label><label><span data-bn="লিঙ্গ">Gender</span><select name="gender" required><option value="" data-bn="নির্বাচন করুন">Select</option><option value="male" data-bn="ছেলে">Male</option><option value="female" data-bn="মেয়ে">Female</option><option value="other" data-bn="অন্যান্য">Other</option></select></label></div></fieldset><fieldset class="application-group "><legend><span data-bn="২. বাবা-মা ও অভিভাবকের তথ্য">2. Parent &amp; guardian information</span></legend><div class="application-fields"><label><span data-bn="পিতার নাম (প্রযোজ্য হলে)">Father’s name (if applicable)</span><input name="father" type="text" maxlength="120"></label><label><span data-bn="মাতার নাম (প্রযোজ্য হলে)">Mother’s name (if applicable)</span><input name="mother" type="text" maxlength="120"></label><label><span data-bn="অভিভাবকের নাম">Parent / legal guardian’s name</span><input name="guardian" type="text" required maxlength="120"></label><label><span data-bn="শিক্ষার্থীর সাথে সম্পর্ক">Relationship to student</span><input name="relationship" type="text" required maxlength="80"></label><label><span data-bn="অভিভাবকের মোবাইল নম্বর">Guardian mobile number</span><input name="phone" type="tel" required autocomplete="tel" maxlength="25"></label><label><span data-bn="অভিভাবকের ইমেইল">Guardian email</span><input name="email" type="email" required autocomplete="email" maxlength="120"></label><label><span data-bn="অভিভাবকের এনআইডি (প্রযোজ্য হলে)">Guardian NID (where applicable)</span><input name="guardianNid" type="text" inputmode="numeric" pattern="(?:[0-9]{10}|[0-9]{13}|[0-9]{17})" maxlength="17"></label></div></fieldset><fieldset class="application-group "><legend><span data-bn="৩. ঠিকানা">3. Address</span></legend><div class="application-fields"><label class="full"><span data-bn="বর্তমান ঠিকানা">Present address</span><textarea name="address" required maxlength="500" rows="3" autocomplete="street-address"></textarea></label><label class="full"><span data-bn="স্থায়ী ঠিকানা">Permanent address</span><textarea name="permanentAddress" required maxlength="500" rows="3"></textarea></label><label><span data-bn="জেলা">District</span><input name="district" type="text" required maxlength="80"></label><label><span data-bn="উপজেলা / থানা">Upazila / thana</span><input name="upazila" type="text" required maxlength="80"></label></div></fieldset><fieldset id="academicFields" class="full academic-fields" hidden disabled><legend><span data-bn="৪. পূর্ববর্তী শিক্ষাগত তথ্য — ২–৯ শ্রেণি">4. Previous academic information — Classes 2–9</span></legend><label><span data-bn="পূর্ববর্তী বিদ্যালয়ের নাম">Previous school name</span><input name="previousSchool" type="text" required maxlength="160"></label><label><span data-bn="সর্বশেষ সম্পন্ন শ্রেণি ও ফলাফল">Last completed class and result</span><input name="previousResult" type="text" required maxlength="160"></label><label><span data-bn="পূর্ববর্তী রোল / নিবন্ধন নম্বর (থাকলে)">Previous roll / registration number (if available)</span><input name="previousRoll" type="text" maxlength="80"></label><label class="consent"><input name="academicCertificateReady" type="checkbox" value="yes" required><span data-bn="স্কুলে প্রদর্শনের জন্য আমার কাছে পূর্ববর্তী শিক্ষাগত সনদ/ফলাফল রয়েছে।">I have the previous academic certificate/report card to present to the school.</span></label><label><span data-bn="ছাড়পত্র (টিসি) — বাধ্যতামূলক">Transfer certificate (TC) — required</span><input id="transferCertificate" name="transferCertificate" type="file" accept="application/pdf,image/jpeg,image/png,image/webp" required aria-describedby="certificateHelp"><span id="transferCertificateError" class="upload-error" role="alert"></span></label><label><span data-bn="পূর্ববর্তী শিক্ষাগত সনদ / ফলাফল — বাধ্যতামূলক">Previous academic certificate / report card — required</span><input id="academicCertificate" name="academicCertificate" type="file" accept="application/pdf,image/jpeg,image/png,image/webp" required aria-describedby="certificateHelp"><span id="academicCertificateError" class="upload-error" role="alert"></span></label><p id="certificateHelp" class="full" data-bn="PDF, JPG, PNG বা WebP; প্রতিটি সর্বোচ্চ ৫ মেগাবাইট। খসড়ায় শুধু ফাইলের নাম রাখা হয়; কাগজপত্র স্কুলে পাঠানো হয় না।">PDF, JPG, PNG or WebP; maximum 5 MB each. Only filenames are saved in the draft; documents are not sent to the school.</p></fieldset><fieldset class="application-group "><legend><span data-bn="৫. আবেদনের ধরন ও সহায়ক তথ্য">5. Category &amp; supporting information</span></legend><div class="application-fields"><label><span data-bn="আবেদনের ধরন">Application category</span><select name="category"><option value="general" data-bn="সাধারণ">General</option><option value="primary" data-bn="সরকারি প্রাথমিক বিদ্যালয়ের শিক্ষার্থী (৬ষ্ঠ শ্রেণি)">Government primary school student (Class 6)</option><option value="catchment" data-bn="ক্যাচমেন্ট এলাকা (প্রযোজ্য হলে)">Catchment area (where applicable)</option><option value="freedom" data-bn="মুক্তিযোদ্ধার সন্তান">Freedom fighter’s child</option><option value="disability" data-bn="বিশেষ চাহিদাসম্পন্ন শিক্ষার্থী">Student with special needs</option><option value="education" data-bn="শিক্ষা মন্ত্রণালয় / অধীনস্থ দপ্তরের কর্মীর সন্তান">Education ministry / department employee’s child</option><option value="sibling" data-bn="এই স্কুলে অধ্যয়নরত শিক্ষার্থীর সহোদর">Sibling studying at this school</option><option value="twin" data-bn="যমজ আবেদনকারী">Twin applicant</option><option value="staff" data-bn="স্কুলের শিক্ষক / কর্মচারীর সন্তান">School teacher / employee’s child</option></select></label><label><span data-bn="সমর্থনকারী সনদ / সহোদরের তথ্য (প্রযোজ্য হলে)">Supporting certificate / sibling details (if applicable)</span><input name="categoryEvidence" type="text" maxlength="240"></label><p class="full" data-bn="সংরক্ষিত আসন দাবি করলে সংশ্লিষ্ট প্রমাণপত্র যাচাইয়ের জন্য স্কুলে দেখাতে হবে।">Any reserved-seat claim requires supporting documents for school verification.</p></div></fieldset><fieldset class="application-group "><legend><span data-bn="৬. কাগজপত্র ও ঘোষণা">6. Documents &amp; declaration</span></legend><div class="application-fields"><ul class="text-list full"><li><span data-bn="জন্ম নিবন্ধন সনদ ও সাম্প্রতিক পাসপোর্ট সাইজ ছবি।">Birth registration certificate and recent passport-size photographs.</span></li><li><span data-bn="অভিভাবকের পরিচয়পত্র ও প্রযোজ্য সহায়ক সনদ।">Guardian identification and applicable supporting certificates.</span></li><li><span data-bn="২–৯ শ্রেণি: পূর্ববর্তী শিক্ষাগত সনদ/ফলাফল এবং বাধ্যতামূলক ছাড়পত্র। ১ম শ্রেণিতে পূর্ববর্তী শিক্ষাগত সনদ লাগবে না।">Classes 2–9: previous academic certificate/report card and required transfer certificate. Class 1 needs no previous academic certificate.</span></li></ul><label class="full consent"><input name="declaration" type="checkbox" required value="yes"><span data-bn="আমি নিশ্চিত করছি প্রদত্ত তথ্য সঠিক এবং যাচাইয়ের জন্য মূল কাগজপত্র প্রদর্শন করব।">I confirm that the information is accurate and will present original documents for verification.</span></label></div></fieldset><div class="full action-row"><button class="primary-action" type="submit"><span data-bn="আবেদন সংরক্ষণ">Save application</span></button><button id="printApplication" type="button"><span data-bn="পূরণকৃত ফর্ম প্রিন্ট">Print completed form</span></button></div></fieldset></form>
+<div id="applicationMessage" class="form-message" role="status" tabindex="-1" hidden>
+</div>
+</section>
+</main><footer class="admission-footer">S. M. Pilot Model School · Established 1948</footer>
+</body>
+</html>
