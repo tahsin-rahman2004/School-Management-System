@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Academic Results | S. M. Pilot Model High School</title>
+<link rel="stylesheet" href="style.css"><link rel="stylesheet" href="results.css">
+</head><body class="results-page">
+<header class="shared-page-header"><nav class="navbar">
+
+
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" data-label="Menu" aria-controls="menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+
+   <a class="logo" href="t.html#home" aria-label="S. M. Pilot Model High School home">
+     <img src="images/logo.png" alt="S. M. Pilot Model High School crest" width="64" height="64">
+     <span class="brand-text">S. M. Pilot<span class="brand-subtitle">Model High School</span></span>
+   </a>
+
+
+    <ul class="menu" id="menu">
+     <li class="menu-head">
+        <button class="menu-close" id="menuClose" aria-label="Close menu" data-label="Cross">&times;</button>
+      </li>
+      <li><a href="t.html#home">Home</a></li>
+      <li><a href="t.html#about">About</a></li>
+      <li><a href="t.html#Teacher's information">Teacher's Information</a></li>
+      <li><a href="t.html#academics">Academics</a></li>
+      <li><a href="t.html#notice">Notice</a></li>
+      <li><a href="t.html#Admission">Admission</a></li>
+      <li><a href="results.html">Results</a></li>
+      <li><a href="academic-calendar.html">Academic Calendar</a></li>
+      <li><a href="t.html#events">Events &amp; Activities</a></li>
+      <li><a href="gallery.html">Gallery</a></li>
+      <li><a href="t.html#Alumni">Alumni</a></li>
+      <li><a href="t.html#contact">Contact</a></li>
+    </ul>
+    <a class="student-login" href="t.html#login">Student Login</a>
+  </nav></header>
+<main class="results-main">
+  <div class="results-intro"><div><a class="breadcrumb" href="t.html">Home /</a><span class="eyebrow">Student services</span><h1>Academic Results</h1><p>Search and view your examination results.</p></div><span class="demo-pill">Design preview &middot; Demo data only</span></div>
+  <div class="results-layout">
+    <section class="search-panel" aria-labelledby="search-title">
+      <span class="panel-number">01 / FIND YOUR RESULT</span><h2 id="search-title">Individual Result</h2><p>Select your examination and enter your roll number.</p>
+      <form id="resultSearch">
+        <label for="resultYear">Academic Year</label><select id="resultYear" name="year"><option>2026</option><option>2025</option></select>
+        <label for="resultClass">Class</label><select id="resultClass" name="class"><option value="8">Class 8</option><option value="6">Class 6</option><option value="7">Class 7</option><option value="9">Class 9</option><option value="10">Class 10</option></select>
+        <label for="resultExam">Examination</label><select id="resultExam" name="exam"><option value="annual">Annual Examination</option><option value="half">Half-yearly Examination</option><option value="first">First Term Examination</option></select>
+        <label for="resultRoll">Student Roll Number</label><input id="resultRoll" name="roll" type="text" inputmode="numeric" pattern="[0-9]+" maxlength="6" placeholder="Enter roll number" required aria-describedby="demoHint">
+        <p id="demoHint" class="field-hint">Try roll <strong>12</strong> &middot; Class 8 &middot; Annual 2026</p>
+        <button class="result-primary" type="submit">Search Result <span aria-hidden="true">&rarr;</span></button>
+        <button class="result-secondary" id="loadDemo" type="button">View sample marksheet</button>
+      </form>
+      <p class="form-message" id="searchMessage" role="status"></p>
+    </section>
+    <section class="result-view" aria-label="Result preview">
+      <div class="result-view-heading"><span class="panel-number">02 / YOUR MARKSHEET</span><span class="sample-label">Sample Result</span></div>
+      <div id="resultEmpty" class="result-empty"><span class="empty-symbol" aria-hidden="true">A+</span><h2>Your progress, at a glance.</h2><p>Search using the demo details to view a complete sample marksheet, download a PDF or print your result.</p><span>2026 &nbsp;/&nbsp; Class 8 &nbsp;/&nbsp; Roll 12</span></div>
+      <article id="marksheet" class="marksheet" hidden aria-labelledby="marksheet-title" tabindex="-1">
+        <div class="marksheet-school"><img src="images/logo.png" alt="School crest" width="62" height="62"><div><h2 id="marksheet-title">S. M. Pilot Model High School</h2><p>Annual Examination &mdash; 2026</p></div></div>
+        <div class="marksheet-banner"><strong>ACADEMIC TRANSCRIPT</strong><span>Sample &middot; Not an official record</span></div>
+        <dl class="student-details"><div><dt>Student Name</dt><dd>Demo Student</dd></div><div><dt>Class / Roll</dt><dd>8 / 12</dd></div><div><dt>Section</dt><dd>A</dd></div><div><dt>Academic Year</dt><dd>2026</dd></div></dl>
+        <table class="marks-table"><caption class="visually-hidden">Sample subject marks and grades</caption><thead><tr><th scope="col">Subject</th><th scope="col">Marks / 100</th><th scope="col">Grade</th></tr></thead><tbody id="subjectRows"></tbody></table>
+        <dl class="result-totals"><div><dt>Total Marks</dt><dd id="totalMarks"></dd></div><div><dt>GPA</dt><dd id="resultGpa"></dd></div><div><dt>Result</dt><dd class="passed">Passed</dd></div></dl>
+        <p class="grading-note">Illustrative marks and GPA only; actual grades must follow the school's approved grading rules.</p>
+        <div class="transcript-reference"><span>Demo reference: SAMPLE-2026-8-12</span><span>Not valid for official use</span></div>
+      </article>
+      <div id="resultActions" class="result-actions" hidden><button id="downloadResult" type="button" class="result-primary">Download PDF</button><button id="printResult" type="button" class="result-secondary">Print Result</button><span>Sample marksheet only</span></div>
+      <p id="downloadStatus" role="status" class="field-hint"></p>
+    </section>
+  </div>
+  <section class="result-extras" aria-label="Results information">
+    <article class="result-info-card"><span class="info-kicker">PUBLICATION</span><h2>Result Publication Date</h2><span class="pending-pill">To be announced</span><p>Approved publication dates will appear here after confirmation by the school office.</p></article>
+    <article class="result-info-card"><span class="info-kicker">RECOGNITION</span><h2>Academic Achievements</h2><p>Celebrating effort, progress and excellence.</p><p class="info-muted">Student achievements will be shared here with permission. No student profiles are published in this preview.</p></article>
+    <article class="result-info-card"><span class="info-kicker">EDUCATION BOARD</span><h2>SSC Results</h2><p>View public examination results through the official Education Board portal.</p><a class="info-link" href="https://educationboardresults.gov.bd/v2/home" target="_blank" rel="noopener noreferrer">Official board results &nearr;</a></article>
+  </section>
+  <section class="verification-panel" aria-labelledby="verification-title"><div><span class="info-kicker">AUTHENTICITY</span><h2 id="verification-title">Result Verification</h2><p>Use a marksheet reference to check its status. This preview recognizes the sample reference only; it cannot verify official records.</p></div><form id="verifyForm"><label for="verifyReference">Marksheet reference</label><div class="verify-controls"><input id="verifyReference" placeholder="SAMPLE-2026-8-12" required maxlength="60"><button class="result-primary" type="submit">Check reference</button></div><p id="verifyMessage" role="status"></p></form></section>
+  <aside class="result-privacy"><strong>Private results. Approved publication.</strong><p>Real detailed marksheets will require student sign-in or secure verification. Teacher marks upload, headteacher approval and authenticated publication require a connected backend and are not active in this preview.</p></aside>
+  <noscript><p>Enable JavaScript to search the demo result and download its marksheet.</p></noscript>
+</main>
+<footer class="contact-footer"><div><h2>S. M. Pilot Model High School</h2><p>Learning today. Leading tomorrow.</p></div><a href="t.html">Back to school website &rarr;</a></footer>
+<script src="script.js" defer></script><script src="results.js" defer></script>
+</body></html>
