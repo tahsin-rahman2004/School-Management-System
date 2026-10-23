@@ -1,5 +1,4 @@
 :root{
-  /* Replace this link with your own image */
   --hero-image: url("images/A.png");
   --overlay: rgba(14, 28, 66, 0.82);
   --accent: #e8452c;
@@ -186,7 +185,7 @@ body.menu-open .content{transform:translateX(140px)}
   z-index: 1;
 }
 
-/* Keep the cross label inside the sidebar's right edge. */
+/* Close-button label stays inside the sidebar. */
 .menu-close::after { left: auto; right: 0; transform: none; }
 .menu-close::after { background:#f8c985;color:#0c1930; }
 

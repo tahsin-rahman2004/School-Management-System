@@ -1,4 +1,4 @@
-// Sample seat counts. Replace these with school-confirmed totals before opening admissions.
+// Sample seat counts for the admission form.
 // 0 = no seats; null = not confirmed.
 const CLASS_9_GROUP_SEATS = { science: 5, humanities: 3, business: 0 };
 const CLASS_SEAT_AVAILABILITY = {
