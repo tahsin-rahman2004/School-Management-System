@@ -1,0 +1,7 @@
+.navbar .language-toggle{margin-left:auto;flex-shrink:0;padding:10px 14px;border:1px solid #f8c985;border-radius:6px;background:transparent;color:#f8c985;font:inherit;font-size:.85rem;font-weight:600;cursor:pointer;white-space:nowrap}
+.navbar .student-login{margin-left:0}
+.language-toggle:hover{background:#f8c985;color:#0c1930}.language-toggle:focus-visible{outline:3px solid #e8452c;outline-offset:4px}
+.document-language{display:flex;justify-content:flex-end;margin-bottom:16px}.document-language .language-toggle{padding:9px 16px;background:#142747;color:#fff;border:0;border-radius:6px;cursor:pointer;font:inherit}
+html[lang="bn"] body{font-family:"Noto Sans Bengali","Bangla Sangam MN",Arial,sans-serif}html[lang="bn"] .eyebrow{letter-spacing:.4px}
+@media(max-width:600px){.navbar{flex-wrap:wrap}.navbar .logo{flex:1}.navbar .language-toggle{margin-left:0;order:3}.navbar .student-login{order:4;margin-left:auto}.navbar .menu{order:5}}
+@media print{.language-toggle,.document-language{display:none!important}}
