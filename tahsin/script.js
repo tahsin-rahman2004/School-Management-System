@@ -20,9 +20,9 @@ if (menuBtn && menuClose && menu) {
       const target = new URL(link.href);
       const targetPage = target.pathname.split("/").pop();
       const active = targetPage === currentPage &&
-        ((["gallery.html", "results.html", "academic-calendar.html"].includes(currentPage)) || target.hash === (location.hash || "#home"));
+        ((["gallery.html", "results.html", "academic-calendar.html", "about.html"].includes(currentPage)) || target.hash === (location.hash || "#home"));
       link.classList.toggle("active", active);
-      if (active) link.setAttribute("aria-current", (["gallery.html", "results.html", "academic-calendar.html"].includes(currentPage)) ? "page" : "location");
+      if (active) link.setAttribute("aria-current", (["gallery.html", "results.html", "academic-calendar.html", "about.html"].includes(currentPage)) ? "page" : "location");
       else link.removeAttribute("aria-current");
     });
   }

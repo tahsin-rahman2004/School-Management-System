@@ -1,0 +1,54 @@
+﻿/* About page */
+.school-page{background:#0e1c42;color:#fff}
+.school-page-main{background:linear-gradient(var(--overlay),var(--overlay)),var(--hero-image) center / cover no-repeat;padding:56px max(6%,calc((100% - 1180px)/2)) 72px}
+.page-intro{padding-bottom:28px;border-bottom:1px solid #ffffff25;margin-bottom:36px}
+.page-intro h1{font-size:clamp(2.2rem,4vw,3.5rem);line-height:1.2;letter-spacing:-1px}
+.school-page-main h2{font-size:clamp(1.45rem,2.5vw,2rem);line-height:1.4;margin-bottom:22px}
+.school-page-main p{color:#d7e1f1;line-height:1.9;font-size:1rem;margin-bottom:20px;max-width:880px}
+.school-page-main a{color:#c3d5ea;text-underline-offset:5px}
+.school-page-main a:hover{color:#fff}
+.about-welcome{max-width:980px;margin-bottom:52px}
+.gallery-inline-link{white-space:nowrap}
+.school-history,.leadership-messages,.about-highlights{border-top:1px solid #ffffff25;padding-top:38px;margin-top:46px}
+.history-layout{display:grid;grid-template-columns:1.1fr 1fr;gap:36px;align-items:center}
+.history-photo{border:1px solid #ffffff30;border-radius:12px;overflow:hidden}
+.history-photo img{display:block;width:100%;height:auto;aspect-ratio:10/7;object-fit:cover}
+.leadership-message-grid,.page-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:28px}
+.leadership-message,.info-panel{background:#10213ded;border:1px solid #ffffff25;border-radius:12px;padding:30px;min-width:0}
+.leadership-portrait{float:right;width:112px;margin:0 0 20px 20px;overflow:hidden;border-radius:8px;border:1px solid #ffffff25;background:#203b5c}
+.leadership-portrait img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover}
+.portrait-placeholder{aspect-ratio:4/5;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:#c3d5ea;text-align:center;padding:10px}
+.portrait-placeholder span{font-size:2rem;letter-spacing:2px}.portrait-placeholder small{font-size:.6rem;line-height:1.4}
+.leadership-message .eyebrow{color:#c3d5ea;letter-spacing:1px;font-size:.65rem}
+.leadership-message h3,.info-panel h3{font-size:1.2rem;line-height:1.5;margin:12px 0}
+.leadership-message .message-role{font-size:.78rem;color:#b4c9e2;margin-bottom:28px}
+.leadership-message p:not(.message-role){clear:both;font-size:.92rem}
+.about-values{list-style:none;display:flex;flex-wrap:wrap;gap:12px;margin-top:20px}
+.about-values li{background:#244366;border:1px solid #ffffff20;padding:10px 14px;border-radius:6px;color:#dce7f5;font-size:.85rem}
+.page-link{display:inline-flex;align-items:center;min-height:44px;margin-top:20px;font-size:.9rem;font-weight:600}
+.page-cta{margin-top:46px;display:flex;align-items:center;justify-content:space-between;gap:28px;border:1px solid #ffffff25;border-radius:12px;padding:32px;background:#152b50}
+.page-cta h2{margin-bottom:12px}.page-cta p{margin-bottom:0}.page-cta .page-link{flex-shrink:0;margin:0}
+.school-page-footer{padding:30px 6%;text-align:center;background:#0c1930;color:#c3d5ea;font-size:.8rem;border-top:1px solid #ffffff25}
+.school-page .language-toggle{color:#c3d5ea;border-color:#c3d5ea}.school-page .language-toggle:hover{background:#c3d5ea;color:#0c1930}
+@media(max-width:850px){.history-layout{grid-template-columns:1fr}.leadership-message-grid{grid-template-columns:1fr}.history-photo{max-width:650px}.page-cta{align-items:flex-start;flex-direction:column}}
+@media(max-width:540px){.school-page-main{padding:36px 6% 48px}.page-grid{grid-template-columns:1fr}.leadership-message,.info-panel,.page-cta{padding:22px}.leadership-portrait{width:88px;margin-left:14px}.school-page-main p{font-size:.93rem}.gallery-inline-link{white-space:normal}}
+
+/* Consistent alignment for About content and leadership cards. */
+.about-page .navbar{padding-left:max(6%,calc((100% - 1180px)/2));padding-right:max(6%,calc((100% - 1180px)/2))}
+.about-page .school-page-main>*,.about-page .history-layout>*{min-width:0}
+.about-page .about-welcome{max-width:none}
+.about-page .school-page-main p{max-width:none}
+.about-page .history-layout{align-items:start}
+.about-page .history-copy p:last-child,.about-page .leadership-message>p:last-child,.about-page .info-panel p:last-child{margin-bottom:0}
+.about-page .leadership-message{display:flex;flex-direction:column}
+.about-page .leadership-header{display:grid;grid-template-columns:minmax(0,1fr) 112px;gap:20px;align-items:start;min-height:168px;margin-bottom:24px}
+.about-page .leadership-heading{min-width:0}
+.about-page .leadership-heading h3{margin:10px 0 8px;overflow-wrap:anywhere}
+.about-page .leadership-heading .message-role{margin:0;line-height:1.7}
+.about-page .leadership-portrait{float:none;width:100%;margin:0}
+.about-page .leadership-message>p{clear:none}
+.about-page .page-cta>div{min-width:0;flex:1}
+.about-page .page-cta .page-link{max-width:260px;line-height:1.6}
+@media(max-width:850px){.about-page .history-photo{max-width:none}.about-page .leadership-header{min-height:140px}}
+@media(max-width:540px){.about-page .leadership-header{grid-template-columns:minmax(0,1fr) 88px;gap:14px;min-height:0;margin-bottom:24px}.about-page .leadership-heading h3{font-size:1.05rem}.about-page .page-cta .page-link{max-width:none}}
+@media(max-width:360px){.about-page .leadership-header{grid-template-columns:1fr}.about-page .leadership-portrait{width:88px;grid-row:1}}
