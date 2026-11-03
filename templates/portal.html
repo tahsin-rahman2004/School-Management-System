@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{{.Title}} | S. M. Pilot Model School</title>
+  <link rel="stylesheet" href="/style.css">
+  <link rel="stylesheet" href="/language.css">
+  <link rel="stylesheet" href="/portal.css?v=attendance-percent-10">
+  <script src="/language.js" defer></script>
+  <script src="/script.js" defer></script>
+  <script src="/portal.js" defer></script>
+</head>
+<body class="portal-page{{if eq .Mode "student"}} student-dashboard{{end}}">
+<header class="shared-page-header">
+  <nav class="navbar">
+    <button class="menu-btn" id="menuBtn" aria-label="Open menu" data-label="Menu" aria-controls="menu" aria-expanded="false"><span></span><span></span><span></span></button>
+    <a class="logo" href="/home.html"><img src="/images/logo.png" alt="S. M. Pilot Model School crest" width="64" height="64"><span class="brand-text">S. M. Pilot<span class="brand-subtitle">Model School</span></span></a>
+    <ul class="menu" id="menu">
+      <li class="menu-head"><button class="menu-close" id="menuClose" aria-label="Close menu" data-label="Cross">&times;</button></li>
+      <li><a href="/home.html">Home</a></li><li><a href="/about.html">About</a></li><li><a href="/teachers.html">Teachers’ Information</a></li><li><a href="/achievements.html" data-bn="অর্জন">Achievements</a></li><li><a href="/admission.html">Admission</a></li><li><a href="/notice.html">Notice</a></li><li><a href="/gallery.html">Gallery</a></li><li><a href="/contact.html">Contact</a></li>
+</ul>
+    <button class="language-toggle" id="languageToggle" type="button" lang="bn" aria-label="বাংলায় দেখুন">বাংলা</button>
+    {{if .User.Email}}<form action="/logout" method="post" class="logout-form"><input type="hidden" name="csrf" value="{{.CSRF}}"><button class="student-login" data-bn="লগআউট">Log out</button></form>{{end}}
+  </nav>
+</header>
+<main class="portal-main">
+{{if .Error}}<p class="portal-alert" role="alert">{{.Error}}</p>{{end}}
+{{if .Success}}<p class="portal-success" role="status">{{.Success}}</p>{{end}}
+{{if eq .Mode "login"}}
+<section class="portal-card login-card">
+  {{if .AdminLogin}}<span class="eyebrow" data-bn="স্কুল অফিস">School office</span>{{else}}<span class="eyebrow" data-bn="শিক্ষার্থী পোর্টাল">Student portal</span>{{end}}
+  {{if .AdminLogin}}<h1 data-bn="অ্যাডমিন লগইন">Admin login</h1>{{else}}<h1 data-bn="শিক্ষার্থী লগইন">Student login</h1>{{end}}
+  <p data-bn="স্কুলের দেওয়া ইমেইল ও পাসওয়ার্ড দিয়ে লগইন করুন।">Sign in with the email and password provided by the school.</p>
+  <form action="{{.LoginPath}}" method="post">
+    <label for="email" data-bn="ইমেইল">Email</label><input id="email" name="email" type="email" autocomplete="username" maxlength="254" required>
+    <label for="password" data-bn="পাসওয়ার্ড">Password</label><input id="password" name="password" type="password" autocomplete="current-password" maxlength="128" required>
+    <button class="portal-button" data-bn="লগইন">Log in</button>
+  </form>
+  <p class="portal-hint" data-bn="প্রথমবার লগইন করার পর নিজের পাসওয়ার্ড ঠিক করতে হবে।">On your first login, you will be asked to choose your own password.</p>
+  {{if .AdminLogin}}<a href="/login" data-bn="শিক্ষার্থী লগইন →">Student login →</a>{{else}}<a href="/contact.html" data-bn="পাসওয়ার্ড ভুলে গেছেন? স্কুল অফিসে যোগাযোগ করুন।">Forgot your password? Contact the school office.</a>{{end}}
+</section>
+{{else if eq .Mode "password"}}
+<section class="portal-card login-card">
+  <span class="eyebrow" data-bn="আপনার অ্যাকাউন্ট">Your account</span><h1 data-bn="নিজের পাসওয়ার্ড ঠিক করুন">Choose your own password</h1>
+  <p data-bn="কমপক্ষে ৮ অক্ষরের একটি পাসওয়ার্ড ব্যবহার করুন।">Use at least 8 characters. A memorable phrase works well.</p>
+  <form action="/change-password" method="post">
+    <input type="hidden" name="csrf" value="{{.CSRF}}">
+    <label for="current" data-bn="বর্তমান বা অস্থায়ী পাসওয়ার্ড">Current or temporary password</label><input id="current" name="current" type="password" autocomplete="current-password" maxlength="128" required>
+    <label for="password" data-bn="নতুন পাসওয়ার্ড">New password</label><input id="password" name="password" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+    <label for="confirm" data-bn="নতুন পাসওয়ার্ড আবার লিখুন">Confirm new password</label><input id="confirm" name="confirm" type="password" autocomplete="new-password" minlength="8" maxlength="128" required>
+    <button class="portal-button" data-bn="পাসওয়ার্ড সংরক্ষণ করুন">Save password and continue</button>
+  </form>
+</section>
+{{else if eq .Mode "admin"}}
+<div class="portal-heading"><span class="eyebrow" data-bn="অ্যাকাউন্ট পরিচালনা">Account management</span><h1 data-bn="স্কুল অফিস">School office</h1><a href="/change-password" data-bn="নিজের পাসওয়ার্ড পরিবর্তন করুন">Change your password</a></div>
+<div class="admin-layout">
+<section class="portal-card"><h2 data-bn="শিক্ষার্থীর অ্যাকাউন্ট তৈরি করুন">Create a student account</h2>
+<form action="/admin" method="post">
+  <input type="hidden" name="csrf" value="{{.CSRF}}"><input type="hidden" name="action" value="create">
+  <label for="name" data-bn="শিক্ষার্থীর নাম">Student name</label><input id="name" name="name" maxlength="100" required>
+  <label for="student_id" data-bn="শিক্ষার্থী আইডি">Student ID</label><input id="student_id" name="student_id" maxlength="50" required>
+  <label for="class" data-bn="শ্রেণি">Class</label><select id="class" name="class" required><option value="" data-bn="শ্রেণি নির্বাচন করুন">Select class</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option><option>10</option></select>
+  <div id="student-group-field"><label for="student-group" data-bn="বিভাগ (নবম–দশম শ্রেণি)">Group (Classes 9–10)</label><select id="student-group" name="group"><option value="" data-bn="বিভাগ নির্বাচন করুন">Select group</option><option value="Science" data-bn="বিজ্ঞান">Science</option><option value="Humanities" data-bn="মানবিক">Humanities</option><option value="Business Studies" data-bn="ব্যবসায় শিক্ষা">Business Studies</option></select></div>
+  <label for="email" data-bn="স্কুলের দেওয়া ইমেইল">School-provided email</label><input id="email" name="email" type="email" maxlength="254" autocomplete="off" required>
+  <button class="portal-button" data-bn="অ্যাকাউন্ট তৈরি করুন">Create account</button>
+</form>
+<p class="portal-hint" data-bn="অ্যাকাউন্ট তৈরি হলে একটি অস্থায়ী পাসওয়ার্ড দেখানো হবে।">A temporary password appears after the account is created.</p>
+</section>
+<section class="portal-card"><h2 data-bn="শিক্ষার্থীদের অ্যাকাউন্ট">Student accounts</h2><div class="account-list">
+{{range .Students}}<article class="account-row"><h3>{{.Name}}</h3><p>{{.Email}}</p><p>ID: {{.StudentID}} · Class {{.Class}}</p><p>{{if .MustChange}}Password change required{{else}}Account active{{end}}</p><form action="/admin" method="post"><input type="hidden" name="csrf" value="{{$.CSRF}}"><input type="hidden" name="email" value="{{.Email}}"><input type="hidden" name="action" value="reset"><button class="secondary-button" data-bn="অস্থায়ী পাসওয়ার্ড তৈরি করুন">Issue a new temporary password</button></form>{{if or (eq .Class "9") (eq .Class "10")}}<form action="/admin" method="post"><input type="hidden" name="csrf" value="{{$.CSRF}}"><input type="hidden" name="email" value="{{.Email}}"><input type="hidden" name="action" value="group"><label for="group-{{.StudentID}}" data-bn="বিভাগ">Group</label><select id="group-{{.StudentID}}" name="group" required><option value="" data-bn="বিভাগ নির্বাচন করুন">Select group</option><option value="Science" {{if eq .Group "Science"}}selected{{end}} data-bn="বিজ্ঞান">Science</option><option value="Humanities" {{if eq .Group "Humanities"}}selected{{end}} data-bn="মানবিক">Humanities</option><option value="Business Studies" {{if eq .Group "Business Studies"}}selected{{end}} data-bn="ব্যবসায় শিক্ষা">Business Studies</option></select><button class="secondary-button" data-bn="বিভাগ সংরক্ষণ করুন">Save group</button></form>{{end}}</article>{{else}}<p data-bn="এখনও কোনো শিক্ষার্থীর অ্যাকাউন্ট নেই।">No student accounts yet.</p>{{end}}
+</div></section></div>
+{{else if eq .Mode "student"}}
+<section class="student-profile" aria-labelledby="profile-name">
+  <img class="student-avatar" src="/images/student-profile.png" alt="AI-generated sample student portrait" width="112" height="112">
+  <div class="profile-details">
+    <span class="profile-role" data-bn="শিক্ষার্থী">Student</span>
+    <h1 id="profile-name">{{.User.Name}}</h1>
+    <dl><div><dt data-bn="শ্রেণি">Class</dt><dd>{{.User.Class}}</dd></div>{{if .User.Group}}<div><dt data-bn="বিভাগ">Group</dt><dd>{{.User.Group}}</dd></div>{{end}}<div><dt data-bn="শিক্ষার্থী আইডি">Student ID</dt><dd>{{.User.StudentID}}</dd></div></dl>
+  </div>
+  <a href="/notice.html" class="dashboard-notice" data-bn="বিজ্ঞপ্তি দেখুন →">View notices →</a>
+</section>
+<section class="student-account" aria-label="Account details">
+  <div><span data-bn="ইমেইল">Email</span><p>{{.User.Email}}</p></div>
+  <a class="profile-password" href="/change-password" data-bn="পাসওয়ার্ড পরিবর্তন করুন">Change password</a>
+</section>
+<div class="student-resources">
+  <div class="resources-heading"><h2 data-bn="শিক্ষা কার্যক্রম">Academic resources</h2><p data-bn="আপনার শ্রেণির প্রয়োজনীয় তথ্য">Everything you need for your class</p></div>
+  <div class="resource-grid">
+<section class="portal-card student-resource"><h3 data-bn="ফলাফল">Results</h3><p data-bn="প্রকাশের পর আপনার পরীক্ষার ফলাফল এখানে দেখা যাবে।">Your examination results will appear here once published.</p><span class="resource-status" data-bn="এখনও প্রকাশিত হয়নি">Not published yet</span></section>
+<section class="portal-card student-resource"><h3 data-bn="শ্রেণির রুটিন">Class routine</h3><p data-bn="পাঠ ও সাপ্তাহিক ক্লাসের সময়সূচি দেখুন।">Keep track of lessons and your weekly class schedule.</p><span class="resource-status" data-bn="এখনও প্রকাশিত হয়নি">Not published yet</span></section>
+<section class="portal-card student-resource"><h3 data-bn="পাঠ্যক্রম">Curriculum</h3><p data-bn="আপনার শ্রেণির পাঠ্যসূচি ও শেখার উপকরণ দেখুন।">Find the syllabus and learning materials for your class.</p><span class="resource-status" data-bn="এখনও প্রকাশিত হয়নি">Not published yet</span></section>
+<section class="portal-card student-resource"><h3 data-bn="শিক্ষাবর্ষের সূচি">Academic calendar</h3><p data-bn="স্কুলের তারিখ, পরীক্ষা ও আসন্ন কার্যক্রম সম্পর্কে জানুন।">Follow school dates, examinations and upcoming activities.</p><span class="resource-status" data-bn="এখনও প্রকাশিত হয়নি">Not published yet</span></section>
+  </div>
+</div>
+<section class="attendance-shortcut"><div><h2 data-bn="আপনার উপস্থিতি">Your attendance</h2><p data-bn="বিষয় অনুযায়ী উপস্থিতির হার ও দৈনিক তালিকা দেখুন।">Check your attendance percentage and daily records by subject.</p></div><a class="dashboard-notice" href="/student/attendance" data-bn="উপস্থিতি দেখুন →">View attendance →</a></section>
+<p class="student-support"><a href="/contact.html" data-bn="স্কুল অফিসে যোগাযোগ করুন →">Contact the school office →</a></p>
+{{else if eq .Mode "attendance"}}
+<div class="portal-heading"><a href="/student" data-bn="← ড্যাশবোর্ডে ফিরে যান">← Back to dashboard</a><h1 data-bn="আপনার উপস্থিতি">Your attendance</h1><p>{{.User.Name}} · <span data-bn="শ্রেণি">Class</span> {{.User.Class}}</p></div>
+<section class="subject-attendance" aria-labelledby="attendance-heading">
+  <div class="attendance-heading"><div><h2 id="attendance-heading" data-bn="বিষয়ভিত্তিক উপস্থিতি">Your subject attendance</h2><p data-bn="উপস্থিতির তথ্য দেখতে একটি বিষয় নির্বাচন করুন।">Choose a subject to check your attendance.</p></div>
+  <div class="attendance-filter"><label for="attendance-subject" data-bn="বিষয়">Subject</label>
+    <select id="attendance-subject">
+      <option value="" data-bn="বিষয় নির্বাচন করুন">Select a subject</option>
+      {{range .Subjects}}<option value="{{.Name}}" data-bn="{{.Bangla}}">{{.Name}}</option>{{end}}
+    </select>
+  </div></div>
+  <p class="attendance-empty" id="attendance-message" role="status" data-bn="কোনো বিষয় নির্বাচন করা হয়নি।">No subject selected.</p>
+  {{if .DemoAttendance}}<p class="attendance-demo" data-bn="নমুনা তথ্য · স্কুলের প্রকৃত উপস্থিতি নয়">Demo data · Not actual school attendance</p>{{end}}
+  <div class="attendance-summary" id="attendance-summary" hidden>
+    <div><span data-bn="উপস্থিতির হার">Attendance</span><strong id="attendance-percentage"></strong></div>
+    <div><span data-bn="উপস্থিত / অনুষ্ঠিত ক্লাস">Attended / held classes</span><strong id="attendance-total"></strong></div>
+    <p data-bn="বিলম্বে উপস্থিতি গণনা করা হয়েছে; অনুমোদিত ছুটি বাদ দেওয়া হয়েছে।">Late arrivals count as attended; excused absences are excluded.</p>
+  </div>
+  <div class="attendance-table-wrap" id="attendance-history" hidden>
+    <table class="attendance-table">
+      <caption data-bn="দৈনিক উপস্থিতির তালিকা">Daily attendance history</caption>
+      <thead><tr><th scope="col" data-bn="তারিখ">Date</th><th scope="col" data-bn="দিন">Day</th><th scope="col" data-bn="উপস্থিতির অবস্থা">Status</th></tr></thead>
+      <tbody id="attendance-rows">
+      {{range .Attendance}}<tr data-subject="{{.Subject}}" data-date="{{.Date}}" data-status="{{.Status}}" hidden><td>{{.Date}}</td><td></td><td>{{.Status}}</td></tr>{{end}}
+      <tr id="attendance-no-records"><td colspan="3" data-bn="এই বিষয়ের উপস্থিতির তথ্য এখনও যোগ করা হয়নি।">No attendance records have been added for this subject.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <noscript><p data-bn="বিষয় নির্বাচন করতে জাভাস্ক্রিপ্ট চালু করুন।">Enable JavaScript to select a subject.</p></noscript>
+</section>
+{{end}}
+</main><footer class="portal-footer">S. M. Pilot Model School · Established 1948</footer>
+</body></html>

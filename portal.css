@@ -1,0 +1,215 @@
+.portal-page {
+  min-height: 100vh;
+  background: #eef2f7;
+  color: #142747;
+}
+.portal-main {
+  width: min(1120px, 90%);
+  margin: 48px auto;
+  min-height: 65vh;
+}
+.portal-card {
+  padding: clamp(24px, 4vw, 40px);
+  background: #fff;
+  border: 1px solid #dbe3ed;
+  border-radius: 14px;
+  box-shadow: 0 12px 35px #1427470a;
+}
+.login-card { max-width: 520px; margin: auto; }
+.portal-card .eyebrow, .portal-heading .eyebrow { color: #526b87; }
+.portal-card h1, .portal-heading h1 { font-size: clamp(1.8rem, 4vw, 2.5rem); margin: 12px 0 16px; }
+.portal-card h2 { font-size: 1.3rem; margin-bottom: 16px; }
+.portal-card p, .portal-heading p { color: #526078; line-height: 1.75; margin-bottom: 16px; }
+.portal-page :where(a:not(.logo):not(.menu a)) { color: #254b75; }
+.portal-card form { display: grid; gap: 10px; margin: 24px 0; }
+.portal-card label { font-weight: 600; margin-top: 8px; }
+.portal-card input, .portal-card select {
+  width: 100%; min-width: 0; border: 1px solid #acbbce; border-radius: 6px;
+  padding: 13px; font: inherit; background: #fff; color: #142747;
+}
+.portal-button, .secondary-button {
+  padding: 13px 18px; border: 0; border-radius: 6px; font: inherit;
+  font-weight: 700; cursor: pointer; background: #c2410c; color: #fff; margin-top: 12px;
+}
+.portal-button:hover { background: #9a3412; }
+.secondary-button { background: #e7edf5; color: #142747; }
+.portal-page :focus-visible { outline: 3px solid #315f91; outline-offset: 3px; }
+.portal-hint { font-size: .9rem; }
+.portal-alert, .portal-success { padding: 20px; border-radius: 8px; margin: 0 auto 24px; overflow-wrap: anywhere; line-height: 1.7; }
+.portal-alert { background: #ffe9e6; color: #8f2418; }
+.portal-success { background: #e0f2e6; color: #174b31; }
+.portal-heading { margin-bottom: 32px; }
+.admin-layout, .resource-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; }
+.account-row { padding: 20px 0; border-bottom: 1px solid #dbe3ed; overflow-wrap: anywhere; }
+.account-row p { margin: 6px 0; }
+.account-row form { margin: 8px 0; }
+.logout-form { margin-left: 12px; }
+.logout-form .student-login { background: transparent; cursor: pointer; }
+.portal-help { margin-top: 32px; line-height: 1.8; }
+.portal-footer { text-align: center; padding: 28px; background: #0c1930; color: #c3d0e2; }
+@media (max-width: 720px) {
+  .admin-layout, .resource-grid { grid-template-columns: 1fr; }
+  .portal-main { margin: 28px auto; }
+  .logout-form { margin-left: 0; }
+}
+
+.student-dashboard { background: #fff; color: #142747; }
+.student-dashboard .portal-main { width: min(1120px, 88%); }
+.student-profile {
+  display: flex;
+  align-items: center;
+  gap: 28px;
+  padding: 32px;
+  border: 1px solid #dbe3ed;
+  border-radius: 10px;
+  background: linear-gradient(115deg, #edf4fc, #f7fafc);
+}
+.student-avatar { width: 96px; height: 96px; flex-shrink: 0; border-radius: 50%; object-fit: cover; border: 3px solid #fff; }
+.profile-details { flex: 1; min-width: 0; }
+.profile-role { color: #526078; font-size: .75rem; letter-spacing: 1px; text-transform: uppercase; }
+.profile-details h1 { font-size: clamp(1.5rem, 3vw, 2.2rem); margin: 8px 0 16px; overflow-wrap: anywhere; }
+.profile-details dl { display: flex; flex-wrap: wrap; gap: 12px 28px; }
+.profile-details dl div { display: flex; gap: 8px; align-items: baseline; }
+.profile-details dt { color: #526078; font-size: .9rem; }
+.profile-details dd { font-weight: 600; overflow-wrap: anywhere; }
+.portal-page a.dashboard-notice { display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; min-height: 44px; color: #fff; background: #183b63; padding: 13px 18px; border-radius: 6px; font-weight: 600; text-decoration: none; white-space: nowrap; }
+.portal-page a.dashboard-notice:hover { background: #102c4c; }
+.student-account { display: flex; align-items: center; justify-content: space-between; gap: 20px; padding: 22px 0; border-bottom: 1px solid #dbe3ed; margin-bottom: 36px; }
+.student-account div { min-width: 0; }
+.student-account span { font-size: .8rem; color: #526078; }
+.student-account p { margin-top: 6px; overflow-wrap: anywhere; }
+.profile-password { font-size: .9rem; text-underline-offset: 4px; }
+.resources-heading { margin-bottom: 20px; }
+.resources-heading h2 { font-size: 1.25rem; margin-bottom: 8px; }
+.resources-heading p { color: #526078; line-height: 1.6; }
+.student-resources .resource-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; }
+.student-resource {
+  --resource-accent: #315f91;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 28px;
+  border: 1px solid #dce6f1;
+  border-top: 4px solid var(--resource-accent);
+  border-radius: 12px;
+  background: linear-gradient(145deg, #edf4ff, #fff);
+  box-shadow: 0 8px 24px #14274712;
+  transition: transform .2s ease, box-shadow .2s ease;
+}
+.student-resource:nth-child(2) {
+  --resource-accent: #28756c;
+  background: linear-gradient(145deg, #eaf7f3, #fff);
+}
+.student-resource:nth-child(3) {
+  --resource-accent: #6b5293;
+  background: linear-gradient(145deg, #f2edfa, #fff);
+}
+.student-resource:nth-child(4) {
+  --resource-accent: #94651f;
+  background: linear-gradient(145deg, #fff5e3, #fff);
+}
+@media (hover: hover) {
+  .student-resource:hover { transform: translateY(-5px); box-shadow: 0 15px 32px #14274720; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .student-resource { transition: none; }
+  .student-resource:hover { transform: none; }
+}
+.student-resource h3 { font-size: 1.1rem; color: var(--resource-accent); }
+.student-resource p { color: #526078; font-size: .95rem; line-height: 1.7; margin: 0; }
+.resource-status { margin-top: auto; padding: 6px 10px; border-radius: 5px; background: #ffffffb3; color: #526078; font-size: .8rem; }
+.student-support { margin-top: 30px; text-align: center; font-size: .9rem; }
+.student-support a { text-underline-offset: 4px; }
+@media (max-width: 640px) {
+  .student-profile { flex-wrap: wrap; padding: 22px; gap: 18px; }
+  .student-avatar { width: 72px; height: 72px; }
+  .profile-details { flex-basis: calc(100% - 90px); }
+  .student-account { align-items: flex-start; flex-direction: column; gap: 14px; }
+  .student-resources .resource-grid { grid-template-columns: 1fr; }
+}
+
+.portal-page .navbar {
+  padding-inline: clamp(20px, 4vw, 64px);
+  gap: 16px;
+}
+.portal-page .shared-page-header { background: #0c1930; }
+.portal-card input:focus-visible,
+.portal-card select:focus-visible {
+  outline: 3px solid #315f91;
+  outline-offset: 3px;
+  border-color: #315f91;
+}
+.password-field { position: relative; min-width: 0; }
+.portal-card .password-field input { padding-right: 56px; }
+.password-toggle {
+  position: absolute;
+  right: 4px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  border-radius: 5px;
+  background: transparent;
+  color: #254b75;
+  cursor: pointer;
+}
+.password-toggle:hover { background: #e7edf5; }
+.password-toggle svg { width: 22px; height: 22px; pointer-events: none; }
+.password-toggle .eye-slash { display: none; }
+.password-toggle[aria-pressed="true"] .eye-slash { display: block; }
+@media (max-width: 600px) {
+  .portal-page .navbar { flex-wrap: wrap; gap: 12px; }
+  .portal-page .navbar .menu-btn { flex-shrink: 0; }
+  .portal-page .logout-form { order: 4; margin-left: auto; }
+  .portal-page .navbar .language-toggle { margin-left: 0; }
+}
+
+.subject-attendance {
+  margin-top: 30px;
+  padding: 28px;
+  border: 1px solid #dce6f1;
+  border-top: 4px solid #315f91;
+  border-radius: 12px;
+  background: #f4f8fd;
+}
+.attendance-heading { display: flex; align-items: center; justify-content: space-between; gap: 24px; }
+.attendance-heading h2 { font-size: 1.25rem; margin-bottom: 10px; }
+.attendance-heading p { color: #526078; line-height: 1.7; }
+.attendance-filter { min-width: 200px; }
+.attendance-filter label { display: block; margin-bottom: 8px; font-size: .9rem; font-weight: 600; }
+.attendance-filter select { width: 100%; padding: 12px; font: inherit; color: #142747; background: #fff; border: 1px solid #acbbce; border-radius: 6px; }
+.attendance-empty { margin-top: 24px; border-top: 1px solid #dce6f1; padding-top: 20px; color: #526078; line-height: 1.7; }
+@media (max-width: 640px) {
+  .subject-attendance { padding: 22px; }
+  .attendance-heading { flex-direction: column; align-items: stretch; }
+  .attendance-filter { min-width: 0; }
+}
+
+.attendance-table-wrap { margin-top: 16px; overflow-x: auto; }
+.attendance-table { width: 100%; border-collapse: collapse; background: #fff; font-size: .9rem; }
+.attendance-table caption { text-align: left; padding: 12px 0; color: #526078; }
+.attendance-table th, .attendance-table td { text-align: left; padding: 14px 16px; border-bottom: 1px solid #dce6f1; }
+.attendance-table th { background: #183b63; color: #fff; font-weight: 600; }
+.attendance-table .attendance-present { color: #206244; font-weight: 600; }
+.attendance-table .attendance-absent { color: #a42d27; font-weight: 600; }
+.attendance-table .attendance-late { color: #805511; font-weight: 600; }
+.attendance-table .attendance-excused { color: #315f91; font-weight: 600; }
+@media (max-width: 480px) {
+  .attendance-table th, .attendance-table td { padding: 12px 8px; }
+}
+
+.attendance-demo { margin-top: 16px; color: #805511; font-size: .8rem; }
+.attendance-summary { margin-top: 20px; padding: 20px; border: 1px solid #dce6f1; border-radius: 8px; background: #fff; }
+.attendance-summary > div { display: inline-flex; flex-direction: column; gap: 8px; margin: 0 28px 12px 0; }
+.attendance-summary span { color: #526078; font-size: .85rem; }
+.attendance-summary strong { color: #183b63; font-size: 1.8rem; }
+.attendance-summary p { color: #526078; font-size: .8rem; line-height: 1.6; }
+
+.attendance-shortcut { display: flex; justify-content: space-between; align-items: center; gap: 24px; margin-top: 28px; padding: 24px; background: #edf4fc; border: 1px solid #dce6f1; border-radius: 10px; }
+.attendance-shortcut h2 { font-size: 1.2rem; margin-bottom: 8px; }
+.attendance-shortcut p { color: #526078; line-height: 1.7; }
+@media (max-width: 640px) { .attendance-shortcut { flex-direction: column; align-items: flex-start; } }
