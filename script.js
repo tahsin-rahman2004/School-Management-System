@@ -15,15 +15,15 @@ if (menuBtn && menuClose && menu) {
   });
   const links = menu.querySelectorAll("a");
   function updateActiveLink() {
-    const currentPage = location.pathname.split("/").pop() || "t.html";
+    const currentPage = location.pathname.split("/").pop() || "home.html";
     links.forEach(link => {
       const target = new URL(link.href);
       const targetPage = target.pathname.split("/").pop();
       const matchingPage = targetPage === currentPage || (targetPage === "admission.html" && ["admission-process.html", "admission-form.html"].includes(currentPage));
       const active = matchingPage &&
-        (currentPage !== "t.html" || target.hash === (location.hash || "#home"));
+        (currentPage !== "home.html" || target.hash === (location.hash || "#home"));
       link.classList.toggle("active", active);
-      if (active) link.setAttribute("aria-current", currentPage !== "t.html" ? "page" : "location");
+      if (active) link.setAttribute("aria-current", currentPage !== "home.html" ? "page" : "location");
       else link.removeAttribute("aria-current");
     });
   }
